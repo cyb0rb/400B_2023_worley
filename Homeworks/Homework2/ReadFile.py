@@ -12,6 +12,7 @@ import astropy.units as u
 #               [2-4] xyz positions from center of MW (kpc)
 #               [5-7] xyz velocities from center of MW (km/s)
 def Read(filename):
+    # opens file
     file = open(filename, 'r')
 
     # reads first two lines
