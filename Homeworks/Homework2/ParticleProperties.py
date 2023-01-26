@@ -6,11 +6,24 @@ from ReadFile import Read
 
 filename = '/home/cworley/Documents/400b/MW_000.txt'
 
-# for a given file, extracts various properties about any particle of a given type
-# inputs: filename, p_type (particle type), p_num (number of particle)
-# p_type: 1 = dark matter, 2 = disk stars, 3 = bulge stars
-# returns
 def ParticleInfo(filename, p_type, p_num):
+    """ for a given file, extracts various properties about any particle of a given type
+        Inputs:
+            filename: 'string'
+                path to particle data file
+            p_type: 'integer'
+                type of particle (1 = halo, 2 = disk, 3 = bulge)
+            p_num: 'integer'
+                index of nth particle of type p_type
+        Returns:
+            dist: 'astropy quantity'
+                magnitude of particle distance from the galactic center (kpc)
+            vel: 'astropy quantity'
+                magnitude of particle velocity (km/s)
+            m: 'astropy quantity'
+                mass of particle (Msun)
+    """
+
     #units in file
     mass = 10**10 * u.Msun
     v = u.km / u.second
