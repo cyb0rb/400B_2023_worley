@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.5in]{geometry}
+
+\title{400B Homework 3}
+\author{Cyrus Worley}
+\date{January 31 2023}
+
+\begin{document}
+\maketitle
+
+\section{Galaxy Mass Table}
+\begin{table}[ht]
+    \centering
+    \caption{\label{tab:mass} Galaxy Mass Breakdown}
+    \begin{tabular}{cccccc}
+    \hline\hline
+        \textrm{Galaxy} &
+        \textrm{Halo (10$^{12}$ M$_{\odot}$)} &
+        \textrm{Disk (10$^{12}$ M$_{\odot}$)} &
+        \textrm{Bulge (10$^{12}$ M$_{\odot}$)} &
+        \textrm{Total (10$^{12}$ M$_{\odot}$)} &
+        \textrm{$f_{bar}$} \\
+        \hline
+        Milky Way & 1.975 & 0.075 & 0.010 & 2.060 & 0.041\\
+        M31 & 1.921 & 0.120 & 0.019 & 2.060 & 0.067\\
+        M33 & 0.187 & 0.009 & 0.000 & 0.196 & 0.046\\
+        Local Group & 4.083 & 0.204 & 0.029 & 4.316 & 0.054\\
+    \hline\hline
+    \end{tabular}
+\end{table}
+
+\section{Questions}
+\begin{enumerate}
+    \item The total masses for the Milky Way and M31 are the same for this simulation, and the halo / dark matter makes up a very large fraction (around 95\%) of the mass for both of them.
+    \item M31 has a larger fraction of stellar mass than the Milky Way, so it would be expected to be more luminous. It also has more stellar mass in just the disk than all of the stellar mass of the Milky Way.
+    \item The Milky Way has slightly more dark matter than M31 (1.03 times more), which is expected if M31 has more stellar mass and the same total mass.
+    \item The baryon fraction for each galaxy was between 4-7\% (MW = 4.1\%, M31 = 6.7\%, M33 = 4.6\%), which is less than the entire universe at 16\%. The universal mass fraction also accounts for gas in between galaxies (intergalactic medium). 
+\end{enumerate}
+\end{document}
