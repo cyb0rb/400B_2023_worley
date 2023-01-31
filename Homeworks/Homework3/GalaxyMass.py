@@ -2,6 +2,7 @@ import numpy as np
 import astropy.units as u
 from Homeworks.Homework2.ReadFile import Read
 
+# file paths
 milkyway = '/home/cworley/Documents/400b/MW_000.txt'
 m31 = '/home/cworley/Documents/400b/M31_000.txt'
 m33 = '/home/cworley/Documents/400b/M33_000.txt'
@@ -22,8 +23,8 @@ def ComponentMass(filename, p_type):
     type_i = np.where(data['type'] == p_type)  # index particles of type = p_type
     of_type = data[0:][type_i]                 # array of just particles of type = p_type
 
-    M = np.sum(of_type['m']) * 1e10 * u.Msun   # sum of all particle masses
-    return np.round(M/(1e12), 3)               # should this be in msun or dimensionless divided by 1e12 msun?
+    M = np.sum(of_type['m']) / 100 * u.Msun  # sum of all particle masses
+    return np.round(M, 3)
 
 
 # to obtain answers for table
