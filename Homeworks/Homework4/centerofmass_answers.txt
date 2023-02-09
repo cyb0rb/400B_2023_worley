@@ -1,0 +1,27 @@
+Homework 4 Answers
+
+Milky Way COM position components: [-0.87  2.39 -1.42] kpc
+MW COM position magnitude: 2.91 kpc
+Milky Way COM velocity components: [-0.47  3.41 -1.33] km / s
+MW COM velocity magnitude: 3.69 km / s 
+
+M31 COM position components: [-377.66  611.43 -284.64] kpc
+M31 COM position magnitude: 772.98 kpc
+M31 COM velocity components: [ 72.85 -72.14  49.  ] km / s
+M31 COM velocity magnitude: 113.63 km / s 
+
+M33 COM position components: [-476.22  491.44 -412.4 ] kpc
+M33 COM position magnitude: 798.98 kpc
+M33 COM velocity components: [ 44.42 101.78 142.23] km / s
+M33 COM velocity magnitude: 180.45 km / s 
+
+MW and M31 separation: 770.139 kpc
+MW and M31 velocity difference: 116.691 km / s
+M33 and M31 separation: 201.083 kpc
+M33 and M31 velocity difference: 199.37 km / s
+
+The iterative process to determine the COM is important because
+particles are flung out to farther distances / higher velocities
+from gravitational interactions with the other galaxies, so
+iteratively calculating the COM will reduce the effect of these
+outliers on the COM position and velocity.

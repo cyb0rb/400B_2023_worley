@@ -7,7 +7,6 @@
 import numpy as np
 import astropy.units as u
 import astropy.table as tbl
-
 from Homeworks.Homework2.ReadFile import Read
 
 class CenterOfMass:
@@ -109,7 +108,6 @@ class CenterOfMass:
         # change reference frame to COM frame                                                                          
         # compute the difference between particle coordinates                                                          
         # and the first guess at COM position
-        # write your own code below
         x_new = self.x - x_COM
         y_new = self.y - y_COM
         z_new = self.z - z_COM
@@ -174,11 +172,7 @@ class CenterOfMass:
 
         # set the correct units using astropy and round all values
         # and then return the COM position vector
-        x_COM = np.round(x_COM, 2)
-        y_COM = np.round(y_COM, 2)
-        z_COM = np.round(z_COM, 2)
-        return np.array([x_COM, y_COM, z_COM]) * u.kpc
-        
+        return np.round(p_COM, 2) * u.kpc
         
         
     def COM_V(self, x_COM, y_COM, z_COM):
@@ -205,38 +199,32 @@ class CenterOfMass:
         rv_max = 15.0*u.kpc
 
         # determine the position of all particles relative to the center of mass position (x_COM, y_COM, z_COM)
-        # write your own code below
         xV = np.abs(self.x*u.kpc - x_COM)
         yV = np.abs(self.y*u.kpc - y_COM)
         zV = np.abs(self.z*u.kpc - z_COM)
         rV = np.sqrt(xV**2 + yV**2 + zV**2)
         
         # determine the index for those particles within the max radius
-        # write your own code below
         indexV = np.where(rV < rv_max)
         
         # determine the velocity and mass of those particles within the max radius
-        # write your own code below
         vx_new = self.vx[indexV]
         vy_new = self.vy[indexV]
         vz_new = self.vz[indexV]
         m_new =  self.m[indexV]
         
         # compute the center of mass velocity using those particles
-        # write your own code below
         vx_COM, vy_COM, vz_COM = self.COMdefine(vx_new, vy_new, vz_new, m_new)
         
         # create an array to store the COM velocity
-        # write your own code below
         v_COM = np.array([vx_COM, vy_COM, vz_COM])
 
         # return the COM vector
-        # set the correct units usint astropy
+        # set the correct units using astropy
         # round all values               
-        return np.round(v_COM) * u.km / u.s                                                                         
+        return np.round(v_COM, 2) * u.km / u.s                                                                         
      
     
-
 # ANSWERING QUESTIONS
 #######################
 if __name__ == '__main__' : 
@@ -298,6 +286,9 @@ if __name__ == '__main__' :
     # q4
     '''
         The iterative process to determine the COM is important because
-        (add more here)
+        particles are flung out to farther distances / higher velocities
+        from gravitational interactions with the other galaxies, so
+        iteratively calculating the COM will reduce the effect of these
+        outliers on the COM position and velocity.
     '''
 
