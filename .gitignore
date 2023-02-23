@@ -1,2 +1,4 @@
 # ignore todo list
 *.todo
+# ignore python cache stuff
+*.pyc
