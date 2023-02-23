@@ -1,0 +1,14 @@
+Homework 6
+Cyrus Worley
+
+1. MW and M31 will experience 2 close encounters before their merger (3 counting
+    the merger itself).
+2. The relative velocities between the two galaxies are highest when
+    the galaxies are at close distances, and lowest at the more distant "turnaround"
+    points in the orbit. 
+3. M31 and the MW merge around 6 to 6.5 Gyr. M33's orbit changes to a smaller
+    amplitude and shorter orbital period around the resulting remnant. This is
+    reflected in the relative velocity of M31 and M33 as well, with the periodicity
+    in velocity becoming more regular and sinusoidal after the merger.
+4. Decay of M33's orbit is about ~15 kpc per 1.5 Gyr (or 10 kpc/Gyr), so it would
+    take about 7.5 Gyr for M33 to eventually merge with the MW+M31 remnant.

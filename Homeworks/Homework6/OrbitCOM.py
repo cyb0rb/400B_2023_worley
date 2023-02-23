@@ -79,14 +79,13 @@ def OrbitCOM(galaxy, start, end, n):
                header="{:>10s}{:>11s}{:>11s}{:>11s}{:>11s}{:>11s}{:>11s}"\
                       .format('t', 'x', 'y', 'z', 'vx', 'vy', 'vz'))
 
-
 # Recover the orbits and generate the COM files for each galaxy
 # read in 800 snapshots in intervals of n=5
 # Note: This might take a little while - test your code with a smaller number of snapshots first! 
 
-# OrbitCOM('M33', 0, 800, 5)
-# OrbitCOM('MW', 0, 800, 5)
-# OrbitCOM('M31', 0, 800, 5)
+OrbitCOM('M33', 0, 800, 5)
+OrbitCOM('MW', 0, 800, 5)
+OrbitCOM('M31', 0, 800, 5)
 
 # Read in the data files for the orbits of each galaxy that you just created
 # headers:  t, x, y, z, vx, vy, vz
@@ -114,14 +113,18 @@ def vector_diff(data1, data2):
             v_mag:
                 difference in velocity
         '''
-    
-    # difference
-    #print(np.asarray(data1['x']))
-    #print(data2[0])
-    diff = np.asarray(data1) - np.asarray(data2)
+    # difference in components
+    xdiff = data1['x'] - data2['x']
+    ydiff = data1['y'] - data2['y']
+    zdiff = data1['z'] - data2['z']
+
+    vxdiff = data1['vx'] - data2['vx']
+    vydiff = data1['vy'] - data2['vy']
+    vzdiff = data1['vz'] - data2['vz']
+
     # magnitude of difference in vectors
-    p_mag = np.sqrt(diff['x']**2 + diff['y']**2 + diff['z']**2)
-    v_mag = np.sqrt(diff['vx']**2 + diff['vy']**2 + diff['vz']**2)
+    p_mag = np.sqrt(xdiff**2 + ydiff**2 + zdiff**2)
+    v_mag = np.sqrt(vxdiff**2 + vydiff**2 + vzdiff**2)
     return p_mag, v_mag
 
 # Determine the magnitude of the relative position and velocities 
@@ -134,12 +137,27 @@ relp_M33_M31, relv_M33_M31 = vector_diff(data_M33, data_M31)
 # Plot the Orbit of the galaxies 
 #################################
 fig, ax = plt.subplots()
-ax.plot(data_M31['t'], relp_MW_M31)
+ax.plot(data_M31['t'], relp_MW_M31, label='M31-MW')
+ax.set(title='M31 and MW separation', xlabel='Time [Gyr]', ylabel='Separation [kpc]')
+ax.legend()
 fig.savefig('MW_M31_position.png')
 
-
-
+fig, ax = plt.subplots()
+ax.plot(data_M31['t'], relp_M33_M31, label='M31-M33')
+ax.set(title='M31 and M33 separation', xlabel='Time [Gyr]', ylabel='Separation [kpc]')
+ax.legend()
+fig.savefig('M33_M31_position.png')
 
 # Plot the orbital velocities of the galaxies 
 #################################
+fig, ax = plt.subplots()
+ax.plot(data_M31['t'], relv_MW_M31, label='M31-MW')
+ax.set(title='M31 and MW relative velocity', xlabel='Time [Gyr]', ylabel='Velocity [km/s]')
+ax.legend()
+fig.savefig('MW_M31_velocity.png')
 
+fig, ax = plt.subplots()
+ax.plot(data_M31['t'], relv_M33_M31, label='M31-M33')
+ax.set(title='M31 and M33 relative velocity', xlabel='Time [Gyr]', ylabel='Velocity [km/s]')
+ax.legend()
+fig.savefig('M33_M31_velocity.png')
